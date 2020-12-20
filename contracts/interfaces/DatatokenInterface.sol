@@ -1,18 +1,8 @@
 pragma solidity >=0.5.0;
 
-// Copyright BigchainDB GmbH and Ocean Protocol contributors
 // SPDX-License-Identifier: (Apache-2.0 AND CC-BY-4.0)
 // Code is Apache-2.0 and docs are CC-BY-4.0
-interface IERC20Template {
-    function initialize(
-        string calldata name,
-        string calldata symbol,
-        address minter,
-        uint256 cap,
-        string calldata blob,
-        address collector
-    ) external returns (bool);
-
+interface DatatokenInterface {
     function mint(address account, uint256 value) external;
 
     function minter() external view returns (address);
@@ -47,4 +37,6 @@ interface IERC20Template {
     function proposeMinter(address newMinter) external;
 
     function approveMinter() external;
+
+    function burn(address account, uint256 value) external;
 }
